@@ -2,13 +2,18 @@ package part1.ejercicio2;
 
 public class Oficial extends Operario {
 
+	/**
+	 * Constructor heredado de la clase padre (Empleado).
+	 * 
+	 * @param nombre El nombre del empledo.
+	 */
 	public Oficial(String nombre) {
 		super(nombre);
 	}
-	
+
 	/**
-	 * Esta función se encarga de almacenar en una variable los datos de un
-	 * empleado mas los del operario y oficial.
+	 * Esta función se encarga de almacenar en una variable los datos de un empleado
+	 * mas los del operario y oficial.
 	 * 
 	 * @return La cadena con los datos del empleado.
 	 */

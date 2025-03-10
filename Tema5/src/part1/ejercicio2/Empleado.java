@@ -54,7 +54,7 @@ public class Empleado {
 		// datos del empleado.
 		String solEmpleado = "";
 
-		solEmpleado += "Empledo " + this.nombre;
+		solEmpleado += "Empleado " + this.nombre;
 
 		// Devolvemos la cadena solEmpleado.
 		return solEmpleado;
