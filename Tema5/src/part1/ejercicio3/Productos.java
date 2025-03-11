@@ -20,7 +20,7 @@ public class Productos {
 	 * @param precio El precio del producto.
 	 */
 	public Productos(String nombre, double precio) {
-		// Comprobamos si el nombre es distinto de nombre y no es ni cadena vacia ni
+		// Comprobamos si el nombre es distinto de null y no es ni cadena vacia ni
 		// espacios de blancos.
 		if (nombre != null && !nombre.isBlank()) {
 			this.nombre = nombre;
@@ -60,7 +60,7 @@ public class Productos {
 	}
 
 	/**
-	 * Esat función nos permite modificar el precio del producto.
+	 * Esta función nos permite modificar el precio del producto.
 	 * 
 	 * @param precio El precio nuevo por el que modificar el precio del producto.
 	 */
@@ -68,14 +68,38 @@ public class Productos {
 		this.precio = precio;
 	}
 
+	/**
+	 * Esta función nos calcula el precio total con la cantidad de productos pasados
+	 * como parametro.
+	 * 
+	 * @param cant La cantidad de productos.
+	 * @return El precio total de todos los productos.
+	 */
+	public double calcular(int cant) {
+		// Creamos la variable precioTotal como double para almacenar la cantidad total.
+		double precioTotal;
+
+		// Calculamos el precio total.
+		precioTotal = (double) precio * cant;
+
+		// Devolvemos precioTotal.
+		return precioTotal;
+	}
+
+	/**
+	 * Esta función almacena en una cadena los datos de un producto.
+	 * 
+	 * @return La cadena donde se almacena los datos de un producto.
+	 */
 	@Override
 	public String toString() {
-		//Creamos la variable solProducto como String para almacenar los datos de un producto.
+		// Creamos la variable solProducto como String para almacenar los datos de un
+		// producto.
 		String solProducto = "";
-		
+
 		solProducto += "Nombre: " + this.nombre + " | " + "Precio: " + this.precio;
-		
-		//Devolvemos la variable solProducto.
+
+		// Devolvemos la variable solProducto.
 		return solProducto;
 	}
 
