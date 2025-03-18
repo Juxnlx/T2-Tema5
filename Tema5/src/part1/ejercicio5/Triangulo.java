@@ -1,5 +1,9 @@
 package part1.ejercicio5;
 
+/**
+ * Esta clase almacena toda la información de un triangulo sus lados, su metodo
+ * area, etc.
+ */
 public class Triangulo extends Poligono {
 	/**
 	 * Creamos el atributo lado1 como double para almacenar el tamaño del lado 1 del
@@ -120,18 +124,25 @@ public class Triangulo extends Poligono {
 		}
 	}
 
+	/**
+	 * Esta función se encarga de calcular el area del triangulo.
+	 * 
+	 * @return El area del triangulo.
+	 */
 	@Override
 	public double area() {
 		// Creamos el areaT como double para almacenar el area del triangulo.
 		double areaT;
-		
-		//Creamos la variable semiP como double para almacenar el semiperimetro de un triangulo.
-		double semiP;
-		
-		semiP = (lado1 + lado2 + lado3)/2;
 
-		
-		areaT = Math.sqrt(semiP*(semiP-lado1)*(semiP-lado2)*(semiP-lado3));
+		// Creamos la variable semiP como double para almacenar el semiperimetro de un
+		// triangulo.
+		double semiP;
+
+		// Calculamos el semiperimetro que es la suma de todos los lados entre 2.
+		semiP = (lado1 + lado2 + lado3) / 2;
+
+		// Calulamos el area del triangulo aplicando la formula de herón.
+		areaT = Math.sqrt(semiP * (semiP - lado1) * (semiP - lado2) * (semiP - lado3));
 
 		// Devolvemos el area del triangulo almacenado en la variable areaT.
 		return areaT;
@@ -153,7 +164,7 @@ public class Triangulo extends Poligono {
 		infoTriangulo = "Triangulo \n";
 		infoTriangulo += "Lado 1: " + this.lado1 + "\n";
 		infoTriangulo += "Lado 2: " + this.lado2 + "\n";
-		infoTriangulo += "Lado 3: " + this.lado3 + "\n";
+		infoTriangulo += "Lado 3: " + this.lado3;
 
 		// Devolvemos infoTriangulo donde se encuentra el número de lados de un
 		// triangulo.

@@ -121,7 +121,7 @@ public class Rectangulo extends Poligono {
 		// Almacenamos en la variable infoRecta.
 		infoRecta = "Rectangulo \n";
 		infoRecta += "Lado 1: " + this.lado1 + "\n";
-		infoRecta += "Lado 2: " + this.lado2 + "\n";
+		infoRecta += "Lado 2: " + this.lado2;
 
 		// Devolvemos infoRecta donde se encuentra el número de lados de un rectangulo.
 		return infoRecta;
