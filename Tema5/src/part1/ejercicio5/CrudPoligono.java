@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class CrudPoligono {
 
 	// Creamos un conjunto para almacenar todos los poligonos creados.
-	static HashSet<Poligono> conjuntoPoli = new HashSet<Poligono>();
+	private static HashSet<Poligono> conjuntoPoli = new HashSet<Poligono>();
 
 	/**
 	 * Esta función se encarga de añadir el poligono pasado como parametro con el
