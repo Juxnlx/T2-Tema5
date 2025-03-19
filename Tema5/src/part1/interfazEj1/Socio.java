@@ -56,8 +56,8 @@ public class Socio implements Comparable<Socio> {
 
 		// Almacenamos toda la información en infoSocio.
 		infoSocio = "ID: " + this.id + "\n";
-		infoSocio = "Nombre: " + this.nombre + "\n";
-		infoSocio = "Edad: " + this.edad + "\n";
+		infoSocio += "Nombre: " + this.nombre + "\n";
+		infoSocio += "Edad: " + this.edad + "\n";
 
 		// Devolvemos la información del socio (infoSocio).
 		return infoSocio;
@@ -76,7 +76,7 @@ public class Socio implements Comparable<Socio> {
 	public int compareTo(Socio o) {
 		// Devolvemos la diferencia entre la edad de este socio con el pasado como
 		// parametro.
-		return this.id - o.edad;
+		return (this.id - o.id);
 	}
 
 }
