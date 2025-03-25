@@ -1,0 +1,5 @@
+abstract Vehiculos
+	- marca: String
+	- modelo: String
+	- color: String
+	- matricula: String
