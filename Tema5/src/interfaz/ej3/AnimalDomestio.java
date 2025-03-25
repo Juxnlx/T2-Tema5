@@ -27,6 +27,32 @@ public abstract class AnimalDomestio implements Animal {
 	private String color;
 
 	/**
+	 * Creamos un constructor con todos los atributos de la clase AnimalDomestico
+	 * 
+	 * @param nombre El nombre del animal.
+	 * @param raza   La raza del animal.
+	 * @param edad   Los años del animal.
+	 * @param color  El color del animal.
+	 */
+	public AnimalDomestio(String nombre, String raza, int edad, String color) {
+		if (nombre != null && !nombre.isBlank()) {
+			this.nombre = nombre;
+		}
+		
+		if (raza != null && !raza.isBlank()) {
+			this.raza = raza;
+		}
+		
+		if (edad > 0) {
+			this.edad = edad;
+		}
+		
+		if (color != null && !color.isBlank()) {
+			this.color = color;
+		}
+	}
+
+	/**
 	 * Este metodo se encarga de imprimir un mensaje de que el animal ha visitado al
 	 * veterinario.
 	 */
@@ -55,5 +81,8 @@ public abstract class AnimalDomestio implements Animal {
 		System.out.println("ZZZZZzzzzzzzzzz");
 	}
 
+	/**
+	 * Esta función se encaga de imprimir el ruido que hace cada animal concreto.
+	 */
 	public abstract void hacerRuido();
 }

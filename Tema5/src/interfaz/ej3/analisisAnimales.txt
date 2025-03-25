@@ -9,6 +9,7 @@ abstract AnimalDomestico implements Animal
 	- edad: double
 	- color: String
 	------------------------------
+	+ AnimalDomestico(nombre: String, raza: String, edad: double, color: String)
 	+ vacunar(): void 
 	+ abstract hacerCaso() : boolean
 	------------------------------
@@ -21,6 +22,7 @@ Perro extends AnimalDomestico
 	+ sacarPaseo()
 	------------------------------
 	heredados:
+		+ AnimalDomestico(nombre: String, raza: String, edad: double, color: String)
 		+ hacerRuido(): void
 		+ hacerCaso(): boolean
 	
@@ -28,5 +30,6 @@ Gato extends AnimalDomestico
 	+ toserBolaPelo()
 	------------------------------
 	heredados:
+		+ AnimalDomestico(nombre: String, raza: String, edad: double, color: String)
 		+ hacerRuido(): void
 		+ hacerCaso() : boolean

@@ -9,6 +9,18 @@ import java.util.Random;
 public class Perro extends AnimalDomestio {
 
 	/**
+	 * Heredamos el contructor de la clase AnimalDomestico.
+	 * 
+	 * @param nombre El nombre del perro.
+	 * @param raza   La raza del perro.
+	 * @param edad   Los años del perro.
+	 * @param color  El color del perro.
+	 */
+	public Perro(String nombre, String raza, int edad, String color) {
+		super(nombre, raza, edad, color);
+	}
+
+	/**
 	 * Esta función se encarga de mostrarnos un mensaje indicando lo que hace el
 	 * perro cuando sale a pasear.
 	 */
@@ -23,14 +35,12 @@ public class Perro extends AnimalDomestio {
 	 */
 	@Override
 	public boolean hacerCaso() {
-		boolean caso;
+		boolean caso = false;
 
 		Random rand = new Random();
 
-		if (rand.nextInt(1, 10) <= 9) {
+		if (rand.nextInt(0, 11) <= 9) {
 			caso = true;
-		} else {
-			caso = false;
 		}
 
 		return caso;
