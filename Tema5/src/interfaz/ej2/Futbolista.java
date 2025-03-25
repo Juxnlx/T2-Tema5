@@ -1,4 +1,4 @@
-package part1.interfazEj2;
+package interfaz.ej2;
 
 public class Futbolista implements Comparable<Futbolista> {
 

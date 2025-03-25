@@ -1,4 +1,4 @@
-package part1.interfazEj1;
+package interfaz.ej1;
 
 public class Socio implements Comparable<Socio> {
 
