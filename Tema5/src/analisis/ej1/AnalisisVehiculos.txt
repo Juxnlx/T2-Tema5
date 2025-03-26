@@ -3,3 +3,31 @@ abstract Vehiculos
 	- modelo: String
 	- color: String
 	- matricula: String
+	- estadoMotor: boolean 
+	- marchaActual: int 
+	- velocidadActual: double
+	---------------------------------
+	+ Vehiculos(marca: String, modelo: String, color: String, matricula: String, 
+				estadoMotor: boolean, marchaActual: int, velocidadActual: double)
+	+ parar(): void
+	+ arrarcar(): void
+	+ subirMarcha(): void
+	+ bajarMarcha(): void 
+	
+Turismo extends Vehiculos
+	- Uso: enun (PROFESIONAL, PARTICULAR)
+	- numPlazas: int 
+	- tipoUso: Uso
+		
+Camion extends Vehiculos
+	- pesoMax: double
+	- transportaMP: boolean
+	
+Motocicleta extends Vehiculos
+	- cilindrada: int
+	---------------------------------
+	+ requiereCarnet(cilindrada): boolean
+	
+	
+
+	
