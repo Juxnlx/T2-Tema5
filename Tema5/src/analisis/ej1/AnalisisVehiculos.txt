@@ -7,25 +7,42 @@ abstract Vehiculos
 	- marchaActual: int 
 	- velocidadActual: double
 	---------------------------------
-	+ Vehiculos(marca: String, modelo: String, color: String, matricula: String, 
-				estadoMotor: boolean, marchaActual: int, velocidadActual: double)
+	+ Vehiculos(marca: String, modelo: String, color: String, matricula: String)
+	+ getMarchaActual(): int
+	+ getVelocidadActual(): double
+	+ setVelocidad(double velocidad): void
 	+ parar(): void
 	+ arrarcar(): void
 	+ subirMarcha(): void
 	+ bajarMarcha(): void 
+	+ ajustarVelocidad(): void
 	
 Turismo extends Vehiculos
 	- Uso: enun (PROFESIONAL, PARTICULAR)
 	- numPlazas: int 
 	- tipoUso: Uso
+	---------------------------------
+	+ Turismo (marca: String, modelo: String, color: String, 
+	           matricula: String, numPlazas: int, tipoUso: Uso)
+	+ getNumPlazas(): int
+	+ setNumPlazas(int numPlazas): void
+	+ getUso(): Uso
+	+ setUso(String uso): void
+	tipoUso(String uso): void
 		
 Camion extends Vehiculos
 	- pesoMax: double
 	- transportaMP: boolean
+	---------------------------------
+    + Camion(marca: String, modelo: String, color: String, matricula: String, 
+             pesoMax: double, transportaMP: boolean)
+        
 	
 Motocicleta extends Vehiculos
 	- cilindrada: int
 	---------------------------------
+	+ Motocicleta(marca: String, modelo: String, color: String, matricula: String, 
+				  cilindrada: int)
 	+ requiereCarnet(cilindrada): boolean
 	
 	

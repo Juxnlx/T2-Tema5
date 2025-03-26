@@ -67,6 +67,34 @@ public abstract class Vehiculos {
 	}
 
 	/**
+	 * Esta función se encarga de devolver la marcha actual de un vehiculo.
+	 * 
+	 * @return La marcha actual de un vehiculo.
+	 */
+	public int getMarchaActual() {
+		return marchaActual;
+	}
+
+	/**
+	 * Esta función se encarga de devolver la velocidad actual de un vehiculo.
+	 * 
+	 * @return La valocidad actual de un vehiculo.
+	 */
+	public double getVelocidadActual() {
+		return velocidadActual;
+	}
+
+	/**
+	 * Esta función se encarga de modificar al velocidad actual por la pasado como
+	 * parametro.
+	 * 
+	 * @param velocidad La velocidad nueva por la que sera sustituida la anterior.s
+	 */
+	public void setVelocidad(double velocidad) {
+		this.velocidadActual = velocidad;
+	}
+
+	/**
 	 * Esta función se encarga de poner el estado del motor a false para indicar que
 	 * esta parado, la marcha a 0 y la velocidad actual a 0 tambien. Se entiende que
 	 * el coche esta parado.
@@ -83,7 +111,7 @@ public abstract class Vehiculos {
 	 */
 	public void arrancar() {
 		this.estadoMotor = true;
-		this.marchaActual = 0;
+		this.marchaActual = 1;
 		this.velocidadActual = 0;
 	}
 
@@ -94,6 +122,7 @@ public abstract class Vehiculos {
 	public void subirMarcha() {
 		if (this.marchaActual < 5) {
 			this.marchaActual++;
+			ajustarVelocidad();
 		}
 	}
 
@@ -104,7 +133,41 @@ public abstract class Vehiculos {
 	public void bajarMarcha() {
 		if (this.marchaActual > 0) {
 			this.marchaActual--;
+			ajustarVelocidad();
 		}
 	}
 
+	/**
+	 * Esta función ajusta la velocidad del vehículo según la marcha actual. Si la
+	 * velocidad es demasiado baja para la marcha, la aumenta. Si la velocidad es
+	 * demasiado alta para la marcha, la reduce.
+	 */
+	public void ajustarVelocidad() {
+		if (estadoMotor) {
+			switch (marchaActual) {
+			case 1 -> {
+				velocidadActual = Math.min(velocidadActual + 5, 30);
+			}
+			case 2 -> {
+				velocidadActual = Math.min(velocidadActual + 5, 50);
+			}
+			case 3 -> {
+				velocidadActual = Math.min(velocidadActual + 5, 70);
+			}
+			case 4 -> {
+				velocidadActual = Math.min(velocidadActual + 5, 100);
+			}
+			case 5 -> {
+				velocidadActual = Math.min(velocidadActual + 5, 150);
+			}
+			default -> {
+				velocidadActual = 0;
+			}
+			}
+
+			System.out.println("🚗 Velocidad ajustada a: " + velocidadActual + " km/h (Marcha " + marchaActual + ")");
+		} else {
+			System.out.println("No puedes ajustar la velocidad porque el motor está apagado.");
+		}
+	}
 }

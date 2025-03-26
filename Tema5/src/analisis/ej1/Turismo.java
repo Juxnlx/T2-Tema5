@@ -17,7 +17,7 @@ public class Turismo extends Vehiculos {
 	/**
 	 * Creamos e atributo uso como USO para indicar el uso que tiene el turismo.
 	 */
-	private Uso uso = Uso.PARTICULAR;
+	private Uso uso;
 
 	/**
 	 * Creamos un constructor con todos los atributos heredados de la clase
@@ -40,6 +40,46 @@ public class Turismo extends Vehiculos {
 		if (uso != null) {
 			tipoUso(uso);
 		}
+	}
+
+	/**
+	 * Esta función se encarga de devolver el número de plazas de un turismo.
+	 * 
+	 * @return El número de plazas de un turismo.
+	 */
+	public int getNumPlazas() {
+		return numPlazas;
+	}
+
+	/**
+	 * Esta función se encarga de modificar el número de plazas de un turismo por el
+	 * valor pasado como parametro de entrada.
+	 * 
+	 * @param numPlazas El nuevo número de plazas.
+	 */
+	public void setNumPlazas(int numPlazas) {
+		if (numPlazas > 0) {
+			this.numPlazas = numPlazas;
+		}
+	}
+
+	/**
+	 * Esta función se encarga de devolver el uso de un turismo.
+	 * 
+	 * @return El uso de un turismo.
+	 */
+	public Uso getUso() {
+		return uso;
+	}
+
+	/**
+	 * Esta función se encarga de modificar el uso del turismo por el pasado como
+	 * parametro.
+	 * 
+	 * @param uso El nuevo uso de un turismo.
+	 */
+	public void setUso(String uso) {
+		tipoUso(uso);
 	}
 
 	/**
