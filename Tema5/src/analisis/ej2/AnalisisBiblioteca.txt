@@ -1,0 +1,36 @@
+abstract Ficha 
+	- id: int
+	- titulo: String
+	-----------------------------
+	+ Ficha (id: int, titulo: String);
+	+ getTitulo(): String
+	+ tiempoPrestamo(): int
+	
+Libro extends Ficha
+	- autor: String 
+	- editorial: String
+	-----------------------------
+	+ Libro(id: int, titulo: String, autor: String, editorial: String)
+	+ getAutor(): String
+	+ getEditorial(): String
+	
+Revista extends Ficha
+	- numRevista: int
+	- yearPublicacion: int
+	-----------------------------
+	+ Revista(id: int, titulo: String, numRevista: int, yearPublicacion: int)
+	+ getNumRevista(): int
+	+ getYearPublicacion(): int
+	
+DVD extends Ficha
+	- TipoDVD: enum (PELICULA, DOCUMENTAL, SERIE)
+	- director: String 
+	- year: int
+	- tipoDVD: TipoDVD
+	-----------------------------
+	+ DVD(id: int, titulo: String, director: String, year: int, tipoDVD: TipoDVD)
+	+ getDirector(): String
+	+ getYear(): int
+	+ getTipoDVD(): String
+	+ tipoDVD(): void
+	
