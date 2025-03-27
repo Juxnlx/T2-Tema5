@@ -9,14 +9,14 @@ public class Libro extends Ficha {
 	private String autor;
 
 	/**
-	 * Creamos el atributo editorial como String para almacenar la editorias del
+	 * Creamos el atributo editorial como String para almacenar la editorial del
 	 * libro.
 	 */
 	private String editorial;
 
 	/**
-	 * Creamos este constructor con los atributos de la clase padre (Ficha) y con
-	 * los de la subclase (Libro).
+	 * Creamos este constructor con los atributos de la clase padre (Ficha) y los
+	 * atributos propios de la clase (Libro).
 	 * 
 	 * @param id        El id del libro.
 	 * @param titulo    El titulo del libro.
@@ -32,6 +32,24 @@ public class Libro extends Ficha {
 		if (editorial != null && !editorial.isBlank()) {
 			this.editorial = editorial;
 		}
+	}
+
+	/**
+	 * Esta función se encarga de devolver el nombre del autor del libro.
+	 * 
+	 * @return El autor del libro.
+	 */
+	public String getAutor() {
+		return autor;
+	}
+
+	/**
+	 * Esta función se encarga de devolver la editorial del libro.
+	 * 
+	 * @return La editorial del libro.
+	 */
+	public String getEditorial() {
+		return editorial;
 	}
 
 	/**

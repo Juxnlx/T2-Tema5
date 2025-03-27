@@ -4,7 +4,7 @@ abstract Ficha
 	-----------------------------
 	+ Ficha (id: int, titulo: String);
 	+ getTitulo(): String
-	+ tiempoPrestamo(): int
+	+ abstract tiempoPrestamo(): int
 	
 Libro extends Ficha
 	- autor: String 
@@ -13,6 +13,9 @@ Libro extends Ficha
 	+ Libro(id: int, titulo: String, autor: String, editorial: String)
 	+ getAutor(): String
 	+ getEditorial(): String
+	-----------------------------
+	heredados: 
+		+ abstract tiempoPrestamo(): int
 	
 Revista extends Ficha
 	- numRevista: int
@@ -21,6 +24,9 @@ Revista extends Ficha
 	+ Revista(id: int, titulo: String, numRevista: int, yearPublicacion: int)
 	+ getNumRevista(): int
 	+ getYearPublicacion(): int
+	-----------------------------
+	heredados: 
+		+ abstract tiempoPrestamo(): int
 	
 DVD extends Ficha
 	- TipoDVD: enum (PELICULA, DOCUMENTAL, SERIE)
@@ -32,5 +38,8 @@ DVD extends Ficha
 	+ getDirector(): String
 	+ getYear(): int
 	+ getTipoDVD(): String
-	+ tipoDVD(): void
+	+ comprobarTipoDVD(String tipoDVD): void
+	-----------------------------
+	heredados: 
+		+ abstract tiempoPrestamo(): int
 	
