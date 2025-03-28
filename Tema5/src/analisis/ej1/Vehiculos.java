@@ -35,10 +35,10 @@ public class Vehiculos {
 	private int marchaActual = 0;
 
 	/**
-	 * Creamos el atributo velocidadActual como double para almacenar la velocidad
-	 * del vehiculo.
+	 * Creamos el atributo velocidadActual como int para almacenar la velocidad del
+	 * vehiculo.
 	 */
-	private double velocidadActual = 0;
+	private int velocidadActual = 0;
 
 	/**
 	 * Creamos un constructor de la clase Vehiculos con los siguientes atributos.
@@ -67,6 +67,52 @@ public class Vehiculos {
 	}
 
 	/**
+	 * Esta función se encarga de devolver la marca de un vehiculo.
+	 * 
+	 * @return La marca de un vehiculo.
+	 */
+	public String getMarca() {
+		return marca;
+	}
+
+	/**
+	 * Esta función se encarga de devolver el modelo de un vehiculo.
+	 * 
+	 * @return El modelo de un vehiculo.
+	 */
+	public String getModelo() {
+		return modelo;
+	}
+
+	/**
+	 * Esta función se encarga de devolver el color de un vehiculo.
+	 * 
+	 * @return El color de un vehiculo.
+	 */
+	public String getColor() {
+		return color;
+	}
+
+	/**
+	 * Esta función se encarga de devolver la matricula de un vehiculo.
+	 * 
+	 * @return La matricula de un vehiculo.
+	 */
+	public String getMatricula() {
+		return matricula;
+	}
+
+	/**
+	 * Esta función se encarga de devolver true o false dependiendo de si el
+	 * vehiculo esta apagado o encendido.
+	 * 
+	 * @return true si esta encendido, false en caso contrario.
+	 */
+	public boolean isEstadoMotor() {
+		return estadoMotor;
+	}
+
+	/**
 	 * Esta función se encarga de devolver la marcha actual de un vehiculo.
 	 * 
 	 * @return La marcha actual de un vehiculo.
@@ -80,18 +126,8 @@ public class Vehiculos {
 	 * 
 	 * @return La valocidad actual de un vehiculo.
 	 */
-	public double getVelocidadActual() {
+	public int getVelocidadActual() {
 		return velocidadActual;
-	}
-
-	/**
-	 * Esta función se encarga de modificar al velocidad actual por la pasado como
-	 * parametro.
-	 * 
-	 * @param velocidad La velocidad nueva por la que sera sustituida la anterior.s
-	 */
-	public void setVelocidad(double velocidad) {
-		this.velocidadActual = velocidad;
 	}
 
 	/**
@@ -111,7 +147,7 @@ public class Vehiculos {
 	 */
 	public void arrancar() {
 		this.estadoMotor = true;
-		this.marchaActual = 1;
+		this.marchaActual = 0;
 		this.velocidadActual = 0;
 	}
 
@@ -120,10 +156,7 @@ public class Vehiculos {
 	 * de cinco no puede tener. Y en ese caso incrementamos en +1 la marcha actual.
 	 */
 	public void subirMarcha() {
-		if (this.marchaActual < 5) {
-			this.marchaActual++;
-			ajustarVelocidad();
-		}
+		this.marchaActual++;
 	}
 
 	/**
@@ -131,43 +164,107 @@ public class Vehiculos {
 	 * que cero, en ese caso si decrementamos en -1 la marcha.
 	 */
 	public void bajarMarcha() {
-		if (this.marchaActual > 0) {
-			this.marchaActual--;
-			ajustarVelocidad();
-		}
+		this.marchaActual--;
 	}
 
 	/**
-	 * Esta función ajusta la velocidad del vehículo según la marcha actual. Si la
-	 * velocidad es demasiado baja para la marcha, la aumenta. Si la velocidad es
-	 * demasiado alta para la marcha, la reduce.
+	 * Esta función se encarga de ir mostrando como va acelerando un vehiculo hasta
+	 * llegar a la velocidad pasada como parametro.
+	 * 
+	 * @param velocidad La velocidad hasta la que debemos de alcanzar con nuestro
+	 *                  vehiculo.
+	 * @return true si la velocidad pasada como parametro es mayor que la actual del
+	 *         vehiculo.
 	 */
-	public void ajustarVelocidad() {
-		if (estadoMotor) {
-			switch (marchaActual) {
-			case 1 -> {
-				velocidadActual = Math.min(velocidadActual + 5, 30);
-			}
-			case 2 -> {
-				velocidadActual = Math.min(velocidadActual + 5, 50);
-			}
-			case 3 -> {
-				velocidadActual = Math.min(velocidadActual + 5, 70);
-			}
-			case 4 -> {
-				velocidadActual = Math.min(velocidadActual + 5, 100);
-			}
-			case 5 -> {
-				velocidadActual = Math.min(velocidadActual + 5, 150);
-			}
-			default -> {
-				velocidadActual = 0;
-			}
-			}
+	public boolean acelerar(int velocidad) {
+		boolean res = false;
 
-			System.out.println("Velocidad ajustada a: " + velocidadActual + " km/h (Marcha " + marchaActual + ")");
-		} else {
-			System.out.println("No puedes ajustar la velocidad porque el motor está apagado.");
+		// Comprobamos si la velocidad actual es menor que hasta la velocidad hasta
+		// donde queremos alcanzar.
+		if (this.velocidadActual < velocidad) {
+			res = true;
+
+			// Mientras la velocidad actual es menor que la que queremos alcanza, vamos
+			// incrementando la velocidad de 1 en 1 y la vamos imprimiendo.
+			while (this.velocidadActual < velocidad) {
+
+				this.velocidadActual++;
+				System.out.println(this.velocidadActual);
+
+				// En el caso de que la velocidad se encuentre dentro de este rango y la marcha
+				// sea menor que 1...
+				if (this.velocidadActual >= 0 && this.velocidadActual < 30 && marchaActual < 1) {
+					// Subimos de macha.
+					subirMarcha();
+					// Y mostramos el cambio de marcha que acabamos de hacer.
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 30 && this.velocidadActual < 50 && marchaActual < 2) {
+					subirMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 50 && this.velocidadActual < 70 && marchaActual < 3) {
+					subirMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 70 && this.velocidadActual < 100 && marchaActual < 4) {
+					subirMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 100 && marchaActual < 5) {
+					subirMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				}
+			}
 		}
+
+		// Devolvemos res, la variable donde se almacena si ha sido posible acelerar el
+		// vehiculo o no.
+		return res;
+	}
+
+	/**
+	 * Esta función se encarga de ir mostrando como va frenando un vehiculo hasta
+	 * llegar a la velocidad pasada como parametro.
+	 * 
+	 * @param velocidad La velocidad hasta la que debemos de desacelerar con nuestro
+	 *                  vehiculo.
+	 * @return true si la velocidad pasada como parametro es menor que la actual del
+	 *         vehiculo.
+	 */
+	public boolean frenar(int velocidad) {
+		boolean res = false;
+
+		// Comprobamos si al velocidad actual es mayor que la pasada como parametro.
+		if (this.velocidadActual > velocidad) {
+			res = true;
+
+			// Coprobamos si al velocidad actual es mayor que la pasada como parametro, si
+			// es así imprimimos la velocidad actual y vamos decrementando la velocidad.
+			while (this.velocidadActual > velocidad) {
+				System.out.println(this.velocidadActual);
+				this.velocidadActual--;
+
+				// En el caso de que la velocidad se encuentre dentro de este rango y la marcha
+				// sea mayor que 1...
+				if (this.velocidadActual >= 0 && this.velocidadActual < 30 && marchaActual > 1) {
+					// Bajamos de macha.
+					bajarMarcha();
+					// Imprimimos la marcha actual.
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 30 && this.velocidadActual < 50 && marchaActual > 2) {
+					bajarMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 50 && this.velocidadActual < 70 && marchaActual > 3) {
+					bajarMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 70 && this.velocidadActual < 100 && marchaActual > 4) {
+					bajarMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				} else if (this.velocidadActual >= 100 && marchaActual > 5) {
+					bajarMarcha();
+					System.out.println("Cambio de marcha: " + this.marchaActual);
+				}
+			}
+		}
+		// Devolvemos res, la variable donde se almacena si ha sido posible desacelerar el
+		// vehiculo o no.
+		return res;
 	}
 }

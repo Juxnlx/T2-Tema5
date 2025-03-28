@@ -41,16 +41,6 @@ public class Camion extends Vehiculos {
 	}
 
 	/**
-	 * Esta función se encarga de modificar el peso maximo de un camión por el nuevo
-	 * peso pasado como parametro.
-	 * 
-	 * @param pesoMax El nuevo peso.
-	 */
-	public void setPesoMax(double pesoMax) {
-		this.pesoMax = pesoMax;
-	}
-
-	/**
 	 * Esta función se encarga de devolver mediante un boleano si un camión
 	 * transporta o no mercancias peligrosas.
 	 * 
@@ -58,6 +48,17 @@ public class Camion extends Vehiculos {
 	 */
 	public boolean isTransportaMp() {
 		return transportaMp;
+	}
+
+	/**
+	 * Esta función se encarga de modificar si el camion transporta mercancias
+	 * peligrosas o no.
+	 * 
+	 * @param transportaMp el valor boleano que nos indica si el camión lleva
+	 *                     mercancias peligrosas o no.
+	 */
+	public void setTransportaMp(boolean transportaMp) {
+		this.transportaMp = transportaMp;
 	}
 
 }

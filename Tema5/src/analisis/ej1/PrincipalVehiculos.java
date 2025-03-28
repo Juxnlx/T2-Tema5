@@ -28,34 +28,27 @@ public class PrincipalVehiculos {
 		System.out.print("Introduce la velocidad final que deseas alcanzar --> ");
 		velocidadFinal = sc.nextInt();
 
-		// Acelerar progresivamente
-		while (coche.getVelocidadActual() < velocidadFinal) {
-			// Incrementa la velocidad según la marcha actual.
-			coche.ajustarVelocidad(); 
-
-			// Subir marchas conforme aumente la velocidad
-			if (coche.getVelocidadActual() >= 30 && coche.getMarchaActual() < 2) {
-				coche.subirMarcha();
-			}
-			if (coche.getVelocidadActual() >= 50 && coche.getMarchaActual() < 3) {
-				coche.subirMarcha();
-			}
-			if (coche.getVelocidadActual() >= 70 && coche.getMarchaActual() < 4) {
-				coche.subirMarcha();
-			}
-			if (coche.getVelocidadActual() >= 100 && coche.getMarchaActual() < 5) {
-				coche.subirMarcha();
-			}
-		}
-
-		// 🚗 Mensaje de que se alcanzó la velocidad deseada
-		System.out.println("🚗 Se ha alcanzado la velocidad objetivo de " + velocidadFinal + " km/h.");
+		// Llamamos a la función acelerar para ir imprimiendo como va acelerando el
+		// coche.
+		coche.acelerar(velocidadFinal);
 
 		// Mantenemos la valocidad durante el tiempo introducido por el usuario.
 		System.out.print("\n¿Cuantos segundos quieres mantener la velocidad? --> ");
 		segundos = sc.nextInt();
 		System.out.println("Manteniendo velocidad por " + segundos + " segundos...");
+
+		// Simulación de tiempo.
+		try {
+			Thread.sleep(segundos * 1000);
+		} catch (InterruptedException e) {
+			System.out.println();
+		}
+
 		System.out.println("Tiempo de espera finalizado.");
+
+		// Llamamos a la función frenar para ir imprimiendo como va desacelerando el
+		// coche.
+		coche.frenar(0);
 
 		// Frenar el coche.
 		coche.parar();
@@ -63,8 +56,8 @@ public class PrincipalVehiculos {
 
 		// Apagar el motor.
 		System.out.println("Motor apagado.");
-		
-		//Cierre de Scanner
+
+		// Cierre de Scanner
 		sc.close();
 	}
 

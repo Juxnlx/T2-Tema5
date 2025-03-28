@@ -51,17 +51,6 @@ public class Turismo extends Vehiculos {
 		return numPlazas;
 	}
 
-	/**
-	 * Esta función se encarga de modificar el número de plazas de un turismo por el
-	 * valor pasado como parametro de entrada.
-	 * 
-	 * @param numPlazas El nuevo número de plazas.
-	 */
-	public void setNumPlazas(int numPlazas) {
-		if (numPlazas > 0) {
-			this.numPlazas = numPlazas;
-		}
-	}
 
 	/**
 	 * Esta función se encarga de devolver el uso de un turismo.

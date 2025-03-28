@@ -26,6 +26,15 @@ public class Motocicleta extends Vehiculos {
 	}
 
 	/**
+	 * Esta función se encarga de devolver la cilindrada de una motocicleta.
+	 * 
+	 * @return La cilindrada de una motocicleta.
+	 */
+	public int getCilindrada() {
+		return cilindrada;
+	}
+
+	/**
 	 * Esta función se encarga de indicarnos si la motocicleta necesita carnet si la
 	 * cilindridada es mayor o igual a 125.
 	 * 
@@ -35,12 +44,4 @@ public class Motocicleta extends Vehiculos {
 		return cilindrada >= 125;
 	}
 
-	/**
-	 * Esta función se encarga de devolver la cilindrada de una motocicleta.
-	 * 
-	 * @return La cilindrada de una motocicleta.
-	 */
-	public int getCilindrada() {
-		return cilindrada;
-	}
 }
