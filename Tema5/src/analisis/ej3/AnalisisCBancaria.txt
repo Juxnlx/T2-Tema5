@@ -1,0 +1,55 @@
+abstract CuentasBancarias
+	- numCuenta: String
+	- saldo: double
+	- titulares: List<Titular>
+	--------------------------------
+	+ CuentasBancarias(numCuenta: String, saldo: double, titulares: List<Titular>)
+	+ getNumeroCuenta(): String
+	+ getSaldo(): double
+	+ ingresar(cant: double): boolean
+	+ retirar(cant: double): boolean
+	+ añadirTitular(t: Titular): boolean
+	+ eliminarTitular(dni: String): boolean
+	+ getNumCuenta: String
+	+ getSaldo(): double
+
+Titular
+	- DNI: string
+	- nombre: String
+	- apellidos: String
+	- telefono: int 
+	--------------------------------
+	+ Titular(DNI: string, nombre: String, apellidos: String, telefono: int)
+	+ getDNI(): String
+	+ getNombre(): String
+	+ getApellidos(): String
+	+ getTelefono(): int
+	
+CuentaAhorro extends CuentasBancarias
+	- cuotaMantenimiento: double
+	- interesAnual: double
+	--------------------------------
+	+ CuentaAhorro(numCuenta: String, saldo: double, titulares: List<Titular>, cuotaMantenimiento: double, interesAnual: double)
+	+ calcularSaldoNuevo(): double
+	+ aplicarCuota(): boolean
+	
+CuentaCorriente extends CuentasBancarias
+	- porcertajeTransaccion: double
+	- numTransacciones: int
+	- transacciones: List<Transaccion>
+	--------------------------------
+	+ CuentaCorriente(numeroCuenta: String, saldo: double, titulares: List<Titular>, porcentajeTransaccion: double)
+	+ agregarTransaccion(transaccion: Transaccion): boolean
+	+ calcularCosteTransacciones(): double
+	
+class Transaccion
+	- dia: int
+	- mes: int
+	- año: int
+	- concepto: String
+	- importe: double
+	----------------------------------------
+	+ Transaccion(dia: int, mes: int, año: int, concepto: String, importe: double)
+	+ getFecha(): String
+	+ getConcepto(): String
+	+ getImporte(): double
