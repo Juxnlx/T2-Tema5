@@ -46,9 +46,6 @@ public class PrincipalVehiculos {
 			if (coche.getVelocidadActual() >= 100 && coche.getMarchaActual() < 5) {
 				coche.subirMarcha();
 			}
-
-			System.out.println(
-					"🚗 Velocidad: " + coche.getVelocidadActual() + " km/h | Marcha: " + coche.getMarchaActual());
 		}
 
 		// 🚗 Mensaje de que se alcanzó la velocidad deseada

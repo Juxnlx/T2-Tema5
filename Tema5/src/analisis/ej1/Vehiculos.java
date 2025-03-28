@@ -1,6 +1,6 @@
 package analisis.ej1;
 
-public abstract class Vehiculos {
+public class Vehiculos {
 	/**
 	 * Creamos el atributo marca como String para almacenar la marca de un vehiculo.
 	 */
@@ -165,7 +165,7 @@ public abstract class Vehiculos {
 			}
 			}
 
-			System.out.println("🚗 Velocidad ajustada a: " + velocidadActual + " km/h (Marcha " + marchaActual + ")");
+			System.out.println("Velocidad ajustada a: " + velocidadActual + " km/h (Marcha " + marchaActual + ")");
 		} else {
 			System.out.println("No puedes ajustar la velocidad porque el motor está apagado.");
 		}

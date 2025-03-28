@@ -1,4 +1,4 @@
-abstract Vehiculos
+Vehiculos
 	- marca: String
 	- modelo: String
 	- color: String
@@ -15,7 +15,8 @@ abstract Vehiculos
 	+ arrarcar(): void
 	+ subirMarcha(): void
 	+ bajarMarcha(): void 
-	+ ajustarVelocidad(): void
+	+ acelerar(velocidad: int): boolean
+	+ frenar(velocidad: int): boolean
 	
 Turismo extends Vehiculos
 	- Uso: enun (PROFESIONAL, PARTICULAR)
@@ -43,7 +44,7 @@ Motocicleta extends Vehiculos
 	---------------------------------
 	+ Motocicleta(marca: String, modelo: String, color: String, matricula: String, 
 				  cilindrada: int)
-	+ requiereCarnet(cilindrada): boolean
+	+ requiereCarnet(): boolean
 	
 	
 
