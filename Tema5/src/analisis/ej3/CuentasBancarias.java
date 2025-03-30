@@ -12,7 +12,7 @@ public class CuentasBancarias {
 	/**
 	 * Creamos el atributo saldo como double para almacenar el saldo de una cuenta.
 	 */
-	private double saldo;
+	private double saldo = 0;
 
 	/**
 	 * Creamos una lista para almacenar los titulares de una cuenta bancaria.
@@ -33,7 +33,7 @@ public class CuentasBancarias {
 			this.numCuenta = numCuenta;
 		}
 		if (saldo >= 0) {
-			this.saldo = 0;
+			this.saldo = saldo;
 		}
 
 		// Creamos una lista al crear una cuenta para almacenar los titulares posibles.
@@ -58,6 +58,25 @@ public class CuentasBancarias {
 	 */
 	public double getSaldo() {
 		return saldo;
+	}
+
+	/**
+	 * Esta función se encarga de modificar el saldo de la cuenta con el nuevo saldo
+	 * pasado como parametro.
+	 * 
+	 * @param saldo El nuevo saldo.
+	 */
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+	/**
+	 * Esta función se encarga de devolver la lista de titulares de la cuenta bancaria.
+	 * 
+	 * @return Lista de titulares.
+	 */
+	public ArrayList<Titular> getTitulares() {
+		return titulares;
 	}
 
 	/**
@@ -107,19 +126,50 @@ public class CuentasBancarias {
 	public boolean añadirTitular(Titular t) {
 		boolean añadido = false;
 
-		if (this.titulares.size() < 3) {
+		if (titulares.size() < 3 && !titulares.contains(t)) {
 			this.titulares.add(t);
 			añadido = true;
 		}
 
 		return añadido;
 	}
-	
-	public boolean eliminarTitular() {
-		
+
+	/**
+	 * Esta función se encarga de elimianar el titular pasado como parametro,
+	 * primero comprueba que halla mas de 1 titular en la cuenta y si es así lo
+	 * elimina.
+	 * 
+	 * @param t El titular que hay que eliminar.
+	 * @return true si lo ha eliminado, false si no lo ha hecho.
+	 */
+	public boolean eliminarTitular(Titular t) {
+		boolean eliminado = false;
+
+		if (titulares.size() > 1) {
+			titulares.remove(t);
+			eliminado = true;
+		}
+
+		return eliminado;
 	}
-	
+
+	/**
+	 * Esta función se encarga de buscar si en la lista de titulares se encuentra
+	 * algun titular con el mismo dni pasado como parametro.
+	 * 
+	 * @param dni El dni del titular.
+	 * @return null si el titular no se ha encontrado, el titular si se ha
+	 *         encontrado.
+	 */
 	public Titular busquedaTitular(String dni) {
-		
+		Titular titular = null;
+
+		for (Titular t : titulares) {
+			if (t.getDNI().equals(dni)) {
+				titular = t;
+			}
+		}
+
+		return titular;
 	}
 }

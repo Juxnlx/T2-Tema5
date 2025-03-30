@@ -85,4 +85,37 @@ public class Titular {
 		return telefono;
 	}
 
+	/**
+	 * Esta función se encarga de comparar los dni del titualar actual y el pasado
+	 * como parametro para saber si dos objetos son iguales o no.
+	 * 
+	 * @return true si tienen el mismo dni, false si no lo tienen.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		boolean sol = false;
+
+		Titular t = (Titular) obj;
+
+		if (this.DNI.equals(t.DNI)) {
+			sol = true;
+		}
+
+		return sol;
+	}
+
+	/**
+	 * Esta función se encarga de almacenar en la variable toString toda la
+	 * información que queramos mostrar del Titular.
+	 */
+	@Override
+	public String toString() {
+		String infoTitular;
+
+		infoTitular = "DNI: " + this.DNI + " - Nombre y Apellidos: " + this.DNI + " " + this.apellidos + " - Teléfono: "
+				+ this.telefono;
+
+		return infoTitular;
+	}
+
 }
