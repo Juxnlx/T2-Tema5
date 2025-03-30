@@ -1,0 +1,33 @@
+class AgendaTelefonica
+	- agendaContactos: List<Contacto>
+	------------------------------
+	+ añadirContacto(contacto: Contacto): boolean
+	+ eliminarContacto(contacto: Contacto): boolean
+	+ buscarContacto(nombre: String): Contacto
+	+ listarContactos(): void
+
+class Contacto
+	- nombre: String
+	- telefono: int
+	------------------------------
+	+ Contacto(nombre: String, telefono: int)
+	+ getNombre(): String
+	+ setNombre(nombre: String): void
+	+ getTelefono(): int
+	+ setTelefono(telefono: int): void
+	+ equals(obj: Objet): boolean
+	+ toString(): String
+	
+class Persona extends Contacto
+	- fechaNacimiento: String
+	------------------------------
+	+ Persona(nombre: String, telefono: int, fechaNacimiento: String)
+	+ getFechaNacimiento(): String
+	
+class Empresa extends Contacto
+	- paginaWeb: String
+	------------------------------
+	+ Empresa(nombre: String, telefono: int, paginaWeb: String)
+	+ getPaginaWeb(): String
+	
+	
