@@ -3,7 +3,7 @@ abstract CuentasBancarias
 	- saldo: double
 	- titulares: List<Titular>
 	--------------------------------
-	+ CuentasBancarias(numCuenta: String, saldo: double, titulares: List<Titular>)
+	+ CuentasBancarias(numCuenta: String, t: Titular)
 	+ getNumeroCuenta(): String
 	+ getSaldo(): double
 	+ setSaldo(saldo: double): void
