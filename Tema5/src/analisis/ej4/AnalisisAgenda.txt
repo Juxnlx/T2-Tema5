@@ -1,9 +1,8 @@
 class AgendaTelefonica
-	- agendaContactos: List<Contacto>
+	- agendaContactos: HashSet<Contacto>
 	------------------------------
 	+ añadirContacto(contacto: Contacto): boolean
 	+ eliminarContacto(contacto: Contacto): boolean
-	+ buscarContacto(nombre: String): Contacto
 	+ listarContactos(): void
 
 class Contacto
@@ -23,11 +22,13 @@ class Persona extends Contacto
 	------------------------------
 	+ Persona(nombre: String, telefono: int, fechaNacimiento: String)
 	+ getFechaNacimiento(): String
+	+ toString(): String
 	
 class Empresa extends Contacto
 	- paginaWeb: String
 	------------------------------
 	+ Empresa(nombre: String, telefono: int, paginaWeb: String)
 	+ getPaginaWeb(): String
+	+ toString(): String
 	
 	
