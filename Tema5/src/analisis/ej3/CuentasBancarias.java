@@ -1,6 +1,6 @@
 package analisis.ej3;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public class CuentasBancarias {
 	/**
@@ -15,31 +15,26 @@ public class CuentasBancarias {
 	private double saldo = 0;
 
 	/**
-	 * Creamos una lista para almacenar los titulares de una cuenta bancaria.
+	 * Creamos un conjunto para almacenar los titulares de una cuenta bancaria.
 	 */
-	private ArrayList<Titular> titulares;
+	private HashSet<Titular> titulares = new HashSet<Titular>();
 
 	/**
-	 * Creamos un constructor con todos los atributos de la clase actual
+	 * Creamos un constructor con algunos atributos de la clase actual
 	 * (CuentasBancarias).
 	 * 
 	 * @param numCuenta El número una cuenta bancaria.
-	 * @param saldo     El saldo de una cuenta bancaria.
 	 * @param titular   El titular de una cuenta bancaria.
 	 */
-	public CuentasBancarias(String numCuenta, double saldo, Titular titular) {
+	public CuentasBancarias(String numCuenta, Titular titular) {
 
 		if (numCuenta != null && !numCuenta.isBlank()) {
 			this.numCuenta = numCuenta;
 		}
-		if (saldo >= 0) {
-			this.saldo = saldo;
-		}
 
-		// Creamos una lista al crear una cuenta para almacenar los titulares posibles.
-		this.titulares = new ArrayList<Titular>();
-		// Añadimos el primer titular.
-		this.titulares.add(titular);
+		if (titular != null) {
+			titulares.add(titular);
+		}
 	}
 
 	/**
@@ -69,13 +64,14 @@ public class CuentasBancarias {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
-	
+
 	/**
-	 * Esta función se encarga de devolver la lista de titulares de la cuenta bancaria.
+	 * Esta función se encarga de devolver los titulares que se encuentran en
+	 * nuestro conjunto titulares.
 	 * 
-	 * @return Lista de titulares.
+	 * @return Todos los objetos titulares del conjunto.
 	 */
-	public ArrayList<Titular> getTitulares() {
+	public HashSet<Titular> getTitulares() {
 		return titulares;
 	}
 
@@ -117,8 +113,8 @@ public class CuentasBancarias {
 	}
 
 	/**
-	 * Esta función se encarga de comprobar si la lista de titulares es menor de 3 y
-	 * en ese caso añade a un nuevo titular a una cuenta.
+	 * Esta función se encarga de comprobar si el conjunto de titulares es menor de
+	 * 3 y en ese caso añade a un nuevo titular a una cuenta.
 	 * 
 	 * @param t El nuevo titular de una cuenta.
 	 * @return true si se ha añadido, false si no lo ha hecho.
@@ -151,25 +147,5 @@ public class CuentasBancarias {
 		}
 
 		return eliminado;
-	}
-
-	/**
-	 * Esta función se encarga de buscar si en la lista de titulares se encuentra
-	 * algun titular con el mismo dni pasado como parametro.
-	 * 
-	 * @param dni El dni del titular.
-	 * @return null si el titular no se ha encontrado, el titular si se ha
-	 *         encontrado.
-	 */
-	public Titular busquedaTitular(String dni) {
-		Titular titular = null;
-
-		for (Titular t : titulares) {
-			if (t.getDNI().equals(dni)) {
-				titular = t;
-			}
-		}
-
-		return titular;
 	}
 }

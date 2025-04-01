@@ -22,9 +22,9 @@ public class CuentaAhorro extends CuentasBancarias {
 	 * @param saldoMantenimiento El saldo de mantenimiento de una cuenta de ahorro.
 	 * @param interesAnual       El interes anual de una cuenta de ahorro.
 	 */
-	public CuentaAhorro(String numCuenta, double saldo, Titular titular, double saldoMantenimiento,
+	public CuentaAhorro(String numCuenta, Titular titular, double saldoMantenimiento,
 			double interesAnual) {
-		super(numCuenta, saldo, titular);
+		super(numCuenta, titular);
 
 		if (saldoMantenimiento > 0) {
 			this.saldoMantenimiento = saldoMantenimiento;

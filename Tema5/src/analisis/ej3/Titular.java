@@ -112,7 +112,7 @@ public class Titular {
 	public String toString() {
 		String infoTitular;
 
-		infoTitular = "DNI: " + this.DNI + " - Nombre y Apellidos: " + this.DNI + " " + this.apellidos + " - Teléfono: "
+		infoTitular = "DNI: " + this.DNI + " - Nombre y Apellidos: " + this.nombre + " " + this.apellidos + " - Teléfono: "
 				+ this.telefono;
 
 		return infoTitular;

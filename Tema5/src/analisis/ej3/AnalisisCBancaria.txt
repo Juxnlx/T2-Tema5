@@ -1,18 +1,16 @@
 abstract CuentasBancarias
 	- numCuenta: String
-	- saldo: double
-	- titulares: List<Titular>
+	# saldo: double
+	- titulares: HashSet<Titular> (min: 1, max: 3)
 	--------------------------------
 	+ CuentasBancarias(numCuenta: String, t: Titular)
 	+ getNumeroCuenta(): String
 	+ getSaldo(): double
 	+ setSaldo(saldo: double): void
-	+ getTitulares(): ArrayList<Titular>
 	+ ingresar(cant: double): boolean
 	+ retirar(cant: double): boolean
 	+ añadirTitular(t: Titular): boolean
 	+ eliminarTitular(t: Titular): boolean
-	+ busquedaTitular(dni: String): Titular
 	
 Titular
 	- DNI: string

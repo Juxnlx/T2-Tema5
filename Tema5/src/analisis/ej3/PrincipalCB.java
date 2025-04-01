@@ -10,7 +10,7 @@ public class PrincipalCB {
 
 		// Creamos una cuenta corriente con un saldo inicial de 1000 euros y un 2% de
 		// comisión por transacción.
-		CuentaCorriente cuenta = new CuentaCorriente("ES123456789", 1000, titular1, 2);
+		CuentaCorriente cuenta = new CuentaCorriente("ES123456789", titular1, 2);
 
 		// Agregamos titulares
 		cuenta.añadirTitular(titular2);
@@ -24,17 +24,21 @@ public class PrincipalCB {
 		cuenta.agregarTransaccion(t1);
 		cuenta.agregarTransaccion(t2);
 		cuenta.agregarTransaccion(t3);
-		
+
 		// Imprimir los titulares de la cuenta
-	    System.out.println("Titulares de la cuenta:");
-	    for (Titular t : cuenta.getTitulares()) {
-	        System.out.println(t);
-	        System.out.println("------------------------------");
-	    }
+		System.out.println("Titulares de la cuenta:");
+		for (Titular t : cuenta.getTitulares()) {
+			System.out.println(t);
+			System.out.println("------------------------------");
+		}
 
 		// Mostramos información de la cuenta antes de descontar las comisiones.
 		System.out.println("Saldo inicial: " + cuenta.getSaldo());
 		System.out.println("Número de transacciones realizadas: " + cuenta.getNumTransacciones());
+
+		// Hacemos un ingreso de 1000 euros.
+		System.out.println("Hacemos un ingreso de 1000$");
+		cuenta.ingresar(1000);
 
 		// Calculamos el coste total de las transacciones.
 		double costeTotal = cuenta.calcularCosteTransacciones();

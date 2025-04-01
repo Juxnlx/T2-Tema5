@@ -29,8 +29,8 @@ public class CuentaCorriente extends CuentasBancarias {
 	 * @param titular               El titular de la cuenta
 	 * @param porcertajeTransaccion Porcentaje cobrado por cada transacción.
 	 */
-	public CuentaCorriente(String numCuenta, double saldo, Titular titular, double porcertajeTransaccion) {
-		super(numCuenta, saldo, titular);
+	public CuentaCorriente(String numCuenta, Titular titular, double porcertajeTransaccion) {
+		super(numCuenta, titular);
 		if (porcertajeTransaccion > 0) {
 			this.porcentajeTransaccion = porcertajeTransaccion;
 		}
