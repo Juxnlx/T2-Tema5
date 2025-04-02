@@ -57,6 +57,24 @@ public class Futbolista implements Comparable<Futbolista> {
 	}
 
 	/**
+	 * Esta función se encarga de devolver la edad del futbolista.
+	 * 
+	 * @return La edad del futbolista.
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	/**
+	 * Esta función se encarga de devolver el número de goles del futbolista.
+	 * 
+	 * @return Los número de goles del futbolista.
+	 */
+	public int getNumGoles() {
+		return numGoles;
+	}
+
+	/**
 	 * Esta función se encarga de almacenar en una variable de tipo String toda la
 	 * información del futbolista.
 	 * 

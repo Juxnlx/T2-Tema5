@@ -23,9 +23,17 @@ public class PrincipalFutbolista {
 		listaFutb.add(f3);
 		listaFutb.add(f4);
 
-		// Ordenamos la lista llamando al metodo sort de Collections.
-		Collections.sort(listaFutb);
+		// Ordenamos la lista por las edades
+		Collections.sort(listaFutb, new CompararEdad());
+		System.out.println("ORDENADO POR EDAD");
+		// Recorremos la lista y vamos imprimiendo todos los futbolistas.
+		for (Futbolista futb : listaFutb) {
+			System.out.println(futb);
+		}
 
+		// Ordenamos la lista por el número de goles.
+		Collections.sort(listaFutb, new CompararNumGoles());
+		System.out.println("\nORDENADO POR NUMERO DE GOLES");
 		// Recorremos la lista y vamos imprimiendo todos los futbolistas.
 		for (Futbolista futb : listaFutb) {
 			System.out.println(futb);
