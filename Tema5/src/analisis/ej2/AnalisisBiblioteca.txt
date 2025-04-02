@@ -43,4 +43,7 @@ DVD extends Ficha
 	-----------------------------
 	heredados: 
 		+ abstract tiempoPrestamo(): int
+		
+CompararFichas implements Comparator<Ficha>
+	+ compare(Ficha f1, Ficha f2): int
 	
