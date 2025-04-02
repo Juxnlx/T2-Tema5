@@ -19,7 +19,7 @@ public class PrincipalCB {
 		Transaccion t1 = new Transaccion(15, 3, 2025, "Compra en supermercado", 50.0);
 		Transaccion t2 = new Transaccion(16, 3, 2025, "Pago de factura", 100.0);
 		Transaccion t3 = new Transaccion(17, 3, 2025, "Transferencia recibida", 300.0);
-
+		
 		// Agregamos cada transacción a la cuenta.
 		cuenta.agregarTransaccion(t1);
 		cuenta.agregarTransaccion(t2);

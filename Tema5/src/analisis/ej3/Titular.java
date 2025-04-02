@@ -1,6 +1,6 @@
 package analisis.ej3;
 
-public class Titular {
+public class Titular implements Comparable<Titular> {
 	/**
 	 * Creamos el atributo DNI como String para almacenar el DNI del titular de una
 	 * cuenta.
@@ -112,10 +112,22 @@ public class Titular {
 	public String toString() {
 		String infoTitular;
 
-		infoTitular = "DNI: " + this.DNI + " - Nombre y Apellidos: " + this.nombre + " " + this.apellidos + " - Teléfono: "
-				+ this.telefono;
+		infoTitular = "DNI: " + this.DNI + " - Nombre y Apellidos: " + this.nombre + " " + this.apellidos
+				+ " - Teléfono: " + this.telefono;
 
 		return infoTitular;
+	}
+
+	/**
+	 * Compara el dni actual con el del otro titular para establecer un orden ascendente.
+	 * 
+	 * @param otra El otro titular.
+	 * @return Un número negativo si este titular tiene un DNI menor, un número
+	 *         positivo si este titular tiene un DNI mayor, o 0 si son iguales.
+	 */
+	@Override
+	public int compareTo(Titular t) {
+		return this.DNI.compareTo(t.DNI);
 	}
 
 }

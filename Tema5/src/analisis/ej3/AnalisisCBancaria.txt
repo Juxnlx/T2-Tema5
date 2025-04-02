@@ -1,4 +1,4 @@
-abstract CuentasBancarias
+class CuentasBancarias
 	- numCuenta: String
 	# saldo: double
 	- titulares: HashSet<Titular> (min: 1, max: 3)
@@ -11,8 +11,9 @@ abstract CuentasBancarias
 	+ retirar(cant: double): boolean
 	+ añadirTitular(t: Titular): boolean
 	+ eliminarTitular(t: Titular): boolean
+	+ compareTo(CuentasBancarias c): int
 	
-Titular
+class Titular
 	- DNI: string
 	- nombre: String
 	- apellidos: String
@@ -25,8 +26,9 @@ Titular
 	+ getTelefono(): int
 	+ equals(obj: Object): boolean
 	+ toString(): String
+	+ compareTo(Titular t): int
 	
-CuentaAhorro extends CuentasBancarias
+class CuentaAhorro extends CuentasBancarias
 	- cuotaMantenimiento: double
 	- interesAnual: double
 	--------------------------------
@@ -34,7 +36,7 @@ CuentaAhorro extends CuentasBancarias
 	+ calcularSaldoNuevo(): void
 	+ aplicarCuota(): void
 	
-CuentaCorriente extends CuentasBancarias
+class CuentaCorriente extends CuentasBancarias
 	- porcertajeTransaccion: double
 	- numTransacciones: int
 	- transacciones: List<Transaccion>
@@ -58,3 +60,9 @@ class Transaccion
 	+ getYear(): int
 	+ getConcepto(): String
 	+ getImporte(): double
+		
+ class CompararSaldo implements Comparator<CuentasBancarias>
+	+ compare(CuentasBancarias c1, CuentasBancarias c2): int
+	
+class CompararTitulares implements Comparator<Titular>
+	+ compare(Titular o1, Titular o2): int

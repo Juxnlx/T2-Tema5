@@ -1,8 +1,9 @@
 package analisis.ej3;
 
+import java.util.Collections;
 import java.util.HashSet;
 
-public class CuentasBancarias {
+public class CuentasBancarias implements Comparable<CuentasBancarias> {
 	/**
 	 * Creamos el atributo numCuenta como String para almacenar el número de una
 	 * cuenta.
@@ -147,5 +148,20 @@ public class CuentasBancarias {
 		}
 
 		return eliminado;
+	}
+
+	/**
+	 * Compara esta cuenta con otro pasado por parametro basado en el número de
+	 * cuenta.
+	 * 
+	 * @param La otra cuenta bancaria.
+	 * @return Un valor negativo si esta cuenta tiene un número de cuenta menor
+	 *         alfabeticamente, un valor positivo si es mayor, o 0 si son iguales
+	 *         los números de cuenta.
+	 */
+	@Override
+	public int compareTo(CuentasBancarias c) {
+
+		return this.numCuenta.compareTo(c.numCuenta);
 	}
 }
