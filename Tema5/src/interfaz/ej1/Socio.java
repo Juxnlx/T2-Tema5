@@ -43,6 +43,24 @@ public class Socio implements Comparable<Socio> {
 	}
 
 	/**
+	 * Esta función se encarga de devolver el nombre del socio.
+	 * 
+	 * @return El nombre del socio.
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * Esta función se encarga de devolver la edad del socio.
+	 * 
+	 * @return La edad del socio.
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	/**
 	 * Esta función se encarga de almacenar en una variable de tipo String toda la
 	 * información del Socio.
 	 * 
