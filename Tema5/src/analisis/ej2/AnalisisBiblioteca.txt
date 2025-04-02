@@ -5,6 +5,7 @@ abstract Ficha
 	+ Ficha (id: int, titulo: String);
 	+ getTitulo(): String
 	+ abstract tiempoPrestamo(): int
+	+ compareTo(Ficha f): int
 	
 Libro extends Ficha
 	- autor: String 

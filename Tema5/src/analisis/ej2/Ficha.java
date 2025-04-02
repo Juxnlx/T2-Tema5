@@ -1,6 +1,6 @@
 package analisis.ej2;
 
-public abstract class Ficha {
+public abstract class Ficha implements Comparable<Ficha> {
 	/**
 	 * Creamos el atributo id como int para almacenar el número de identidicación.
 	 */
@@ -44,5 +44,18 @@ public abstract class Ficha {
 	 * @return Los dias de prestado de cada objeto de la biblioteca.
 	 */
 	public abstract int tiempoPrestamo();
+	
+	/**
+	 * Compara esta ficha con otra para definir un orden natural.
+	 * 
+	 * @param otra La otra ficha a comparar.
+	 * @return Un número negativo si esta ficha tiene un ID menor,
+	 *         un número positivo si esta ficha tiene un ID mayor,
+	 *         o 0 si son iguales.
+	 */
+	@Override
+	public int compareTo(Ficha f) {
+		return this.id - f.id;
+	}
 
 }
