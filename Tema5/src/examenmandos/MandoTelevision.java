@@ -33,15 +33,21 @@ public class MandoTelevision extends MandoDistancia implements Volumen {
 	 * @param volumen   El volumen de un mando de televisión.
 	 * @param canal     El canal de un mando de televisión.
 	 */
-	public MandoTelevision(String modelo, double anchura, double altura, double precio, boolean encendido, int volumen,
+	public MandoTelevision(String modelo, double anchura, double altura, double precio, int volumen,
 			int canal) {
-		super(modelo, anchura, altura, precio, encendido);
+		super(modelo, anchura, altura, precio);
 
 		if (volumen > 0) {
 			this.volumen = volumen;
 		}
 
-		if (canal > 0) {
+		if (canal > 0 && canal <= 100) {
+			this.canal = canal;
+		}
+	}
+	
+	public void setCanal(int canal) {
+		if (canal > 0 && canal <= 100) {
 			this.canal = canal;
 		}
 	}

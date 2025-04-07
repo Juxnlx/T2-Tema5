@@ -57,7 +57,8 @@ public class MandoDistancia implements Comparable<MandoDistancia> {
 	 * @param encendido El botón que nos indica si esta encendido o apagado el mando
 	 *                  a distancia.
 	 */
-	public MandoDistancia(String modelo, double anchura, double altura, double precio, boolean encendido) {
+	public MandoDistancia(String modelo, double anchura, double altura, double precio
+) {
 		if (modelo != null && !modelo.isBlank()) {
 			this.modelo = modelo;
 		}
@@ -73,8 +74,6 @@ public class MandoDistancia implements Comparable<MandoDistancia> {
 		if (precio > 0) {
 			this.precio = precio;
 		}
-
-		this.encendido = encendido;
 	}
 
 	/**
@@ -104,6 +103,26 @@ public class MandoDistancia implements Comparable<MandoDistancia> {
 	@Override
 	public int compareTo(MandoDistancia m) {
 		return this.modelo.compareTo(m.modelo);
+	}
+
+	/**
+	 * Esta función se encarga de comprobar si el modelo del objeto actual y el
+	 * pasado por parametro son iguales.
+	 * 
+	 * @param El objeto pasado como parametro.
+	 * @return true si los modelos son iguales, false si no lo son.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		boolean sonIguales = false;
+
+		MandoDistancia m = (MandoDistancia) obj;
+
+		if (this.modelo.equals(m.modelo)) {
+			sonIguales = true;
+		}
+
+		return sonIguales;
 	}
 
 	/**

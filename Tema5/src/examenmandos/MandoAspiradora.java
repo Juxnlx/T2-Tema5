@@ -25,9 +25,8 @@ public class MandoAspiradora extends MandoDistancia implements Velocidad {
 	 *                  a distancia.
 	 * @param velocidad El volumen de un mando de aspiradora.
 	 */
-	public MandoAspiradora(String modelo, double anchura, double altura, double precio, boolean encendido,
-			int velocidad) {
-		super(modelo, anchura, altura, precio, encendido);
+	public MandoAspiradora(String modelo, double anchura, double altura, double precio, int velocidad) {
+		super(modelo, anchura, altura, precio);
 
 		if (velocidad >= 1 && velocidad <= 3) {
 			this.velocidad = velocidad;

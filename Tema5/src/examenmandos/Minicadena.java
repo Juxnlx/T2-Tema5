@@ -24,8 +24,8 @@ public class Minicadena extends MandoDistancia implements Volumen {
 	 *                  minicadena.
 	 * @param volumen   El volumen de una minicadena.
 	 */
-	public Minicadena(String modelo, double anchura, double altura, double precio, boolean encendido, int volumen) {
-		super(modelo, anchura, altura, precio, encendido);
+	public Minicadena(String modelo, double anchura, double altura, double precio, int volumen) {
+		super(modelo, anchura, altura, precio);
 
 		if (volumen > 0) {
 			this.volumen = volumen;

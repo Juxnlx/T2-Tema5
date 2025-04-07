@@ -20,6 +20,8 @@ class MandoTelevision extends MandoDistancia implements Volumen
 	----------------------------------
 	+ MandoTelevision(modelo: String, anchura: double, altura: double, precio: double, volumen: int, canal: int)
 	
+	+ setCanal(canal: int): void
+	
 	+ subirVolumen(): void (+=5)
 	+ bajarVolumen(): void (-=5)
 	+ toString(): String

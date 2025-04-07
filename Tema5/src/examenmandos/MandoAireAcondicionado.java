@@ -44,8 +44,8 @@ public class MandoAireAcondicionado extends MandoDistancia implements Velocidad 
 	 * @param encendido El botón que nos indica si esta encendido o apagado el mando
 	 *                  a distancia.
 	 */
-	public MandoAireAcondicionado(String modelo, double anchura, double altura, double precio, boolean encendido) {
-		super(modelo, anchura, altura, precio, encendido);
+	public MandoAireAcondicionado(String modelo, double anchura, double altura, double precio) {
+		super(modelo, anchura, altura, precio);
 	}
 
 	/**
