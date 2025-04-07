@@ -11,6 +11,7 @@ class MandoDistancia implements Comparable<MandoDistancia>
 	+ encerderMando(): void
 	+ apagarMando(): void
 	+ compareTo(MandoDistancia m): int (ascendente)
+	+ equals(obj: Object): boolean
 	+ toString(): String
 	
 class MandoTelevision extends MandoDistancia implements Volumen
