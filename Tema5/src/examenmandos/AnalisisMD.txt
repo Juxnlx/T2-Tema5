@@ -51,7 +51,7 @@ class MandoAireAcondicionado extends MandoDistancia implements Velocidad
 	- velocidad: int (defecto 0) (min = 0 y max = 5)
 	- modo: Modo (defecto FRIO)
 	----------------------------------
-	MandoAireAcondicionado(modelo: String, anchura: double, altura: double, precio: double, temperatura, int)
+	MandoAireAcondicionado(modelo: String, anchura: double, altura: double, precio: double)
 	
 	+ subirVelocidad(): void (+=1)
 	+ bajarVelocidad(): void (-=1)
