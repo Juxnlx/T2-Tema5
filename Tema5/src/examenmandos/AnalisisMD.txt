@@ -56,6 +56,9 @@ class MandoAireAcondicionado extends MandoDistancia implements Velocidad
 	----------------------------------
 	MandoAireAcondicionado(modelo: String, anchura: double, altura: double, precio: double)
 	
+	+ setTemperatura(int temperatura): void
+	+ setModo(String modo): void
+	+ comprubaModo(String modo): void
 	+ subirVelocidad(): void (+=1)
 	+ bajarVelocidad(): void (-=1)
 	+ toString(): String

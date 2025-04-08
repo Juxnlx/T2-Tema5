@@ -49,6 +49,40 @@ public class MandoAireAcondicionado extends MandoDistancia implements Velocidad 
 	}
 
 	/**
+	 * Esta función se encarga de modificar la temperatura del aire acondicionado
+	 * por la temperatura pasada como parametro.
+	 * 
+	 * @param temperatura La nueva temperatura.
+	 */
+	public void setTemperatura(int temperatura) {
+		this.temperatura = temperatura;
+	}
+
+	/**
+	 * Esta función se encarga de modificar el modo del aire acondicioando por el
+	 * modo pasado como parametro.
+	 * 
+	 * @param modo El nuevo modo.
+	 */
+	public void setModo(String modo) {
+		comprubaModo(null);
+	}
+
+	/**
+	 * Esta función se encarga de comprobar si el modo pasado como parametro es
+	 * valido o no.
+	 * 
+	 * @param modo El modo pasado como parametro.
+	 */
+	public void comprubaModo(String modo) {
+		switch (modo) {
+		case "CALOR" -> {
+			this.modo = Modo.valueOf(modo);
+		}
+		}
+	}
+
+	/**
 	 * Esta función se encarga de subir la velocidad de un aire acondicionado de 1
 	 * en 1 y para ello comprueba si la suma de la velocidad mas 1 no es superior a
 	 * 5.
@@ -60,8 +94,9 @@ public class MandoAireAcondicionado extends MandoDistancia implements Velocidad 
 	}
 
 	/**
-	 * Esa función se encarga de bajar la velocidad de un aire acondicionado de 1 en 1 y
-	 * para ello comprueba si la resta de la velocidad menos 1 no es menor que 0.
+	 * Esa función se encarga de bajar la velocidad de un aire acondicionado de 1 en
+	 * 1 y para ello comprueba si la resta de la velocidad menos 1 no es menor que
+	 * 0.
 	 */
 	public void bajarVelocidad() {
 		if ((this.velocidad - 1) >= 0) {

@@ -61,7 +61,7 @@ public class PrincipalMandos {
 			} else if (m instanceof MandoAspiradora) {
 				aspiradoras((MandoAspiradora) m);
 			} else {
-
+				AireAC((MandoAireAcondicionado) m);
 			}
 		}
 
@@ -116,6 +116,7 @@ public class PrincipalMandos {
 		// el usuario.
 		char opc;
 
+		// Creamos la variable
 		do {
 			System.out.println("----MENU----");
 			System.out.println("a. Subir el volumen.");
@@ -142,7 +143,7 @@ public class PrincipalMandos {
 		} while (opc != 'c');
 	}
 
-	public static void aspiradoras (MandoAspiradora m) {
+	public static void aspiradoras(MandoAspiradora m) {
 		// Creamos la variable opc como char para almacenar la opción seleccionada por
 		// el usuario.
 		char opc;
@@ -171,5 +172,57 @@ public class PrincipalMandos {
 			}
 			System.out.println(m);
 		} while (opc != 'c');
+	}
+
+	public static void AireAC(MandoAireAcondicionado m) {
+		// Creamos la variable opc como char para almacenar la opción seleccionada por
+		// el usuario.
+		char opc;
+
+		// Creamos la variable modo como String para almacenar el modo introducido por
+		// el usuario.
+		String modo;
+
+		// Creamos la varible temp como int para almacenar la temperatura introducida
+		// por el usuario.
+		int temp;
+		
+		do {
+			System.out.println("----MENU----");
+			System.out.println("a. Cambiar el modo.");
+			System.out.println("b. Cambiar la temperatura.");
+			System.out.println("c. Subir velocidad.");
+			System.out.println("c. Bajar velocidad.");
+			System.out.println("e. Salir.");
+			System.out.print("Introduce una opc: ");
+			opc = sc.nextLine().charAt(0);
+
+			switch (opc) {
+			case 'a' -> {
+				System.out.println("Introduce al modo que deseas cambiar: ");
+				modo = sc.nextLine().toUpperCase();
+				m.setModo(modo);
+			}
+			case 'b' -> {
+				System.out.println("Introduce a la temperatura que deseas cambiar: ");
+				temp = sc.nextInt();
+				m.setTemperatura(temp);
+
+			}
+			case 'c' -> {
+				m.subirVelocidad();
+			}
+			case 'd' -> {
+				m.bajarVelocidad();
+			}
+			case 'e' -> {
+				System.out.println("Saliendo del menu de la televisión");
+			}
+			default -> {
+				System.out.println("La opción introducida es incorrecta.");
+			}
+			}
+			System.out.println(m);
+		} while (opc != 'e');
 	}
 }
