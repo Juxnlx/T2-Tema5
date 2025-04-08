@@ -24,7 +24,7 @@ public class PrincipalSocio {
 		listaSocios.add(s4);
 
 		//Ordenamos la lista segun los nombre.
-		Collections.sort(listaSocios, new CompararNombre());
+		Collections.sort(listaSocios, (a, b)-> {return a.getNombre().compareTo(b.getNombre());});
 		System.out.println("ORDENADOS SEGUN EL NOMBRE");
 		// Recorremos la lista y vamos imprimiendo todos los socios.
 		for (Socio socio : listaSocios) {
@@ -32,7 +32,7 @@ public class PrincipalSocio {
 		}
 
 		//Ordenamos la lista segun las edades.
-		Collections.sort(listaSocios, new CompararEdad());
+		Collections.sort(listaSocios, (a, b)-> {return b.getEdad()-(a.getEdad());});
 		System.out.println("\nORDENADOS SEGUN LA EDAD");
 		// Recorremos la lista y vamos imprimiendo todos los socios.
 		for (Socio socio : listaSocios) {

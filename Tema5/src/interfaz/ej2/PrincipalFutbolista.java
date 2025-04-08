@@ -2,6 +2,7 @@ package interfaz.ej2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class PrincipalFutbolista {
 
@@ -24,7 +25,8 @@ public class PrincipalFutbolista {
 		listaFutb.add(f4);
 
 		// Ordenamos la lista por las edades
-		Collections.sort(listaFutb, new CompararEdad());
+		Collections.sort(listaFutb, (a, b) -> {
+			return a.getEdad() - b.getEdad();});
 		System.out.println("ORDENADO POR EDAD");
 		// Recorremos la lista y vamos imprimiendo todos los futbolistas.
 		for (Futbolista futb : listaFutb) {
@@ -32,7 +34,8 @@ public class PrincipalFutbolista {
 		}
 
 		// Ordenamos la lista por el número de goles.
-		Collections.sort(listaFutb, new CompararNumGoles());
+		Collections.sort(listaFutb, (a, b) -> {
+			return b.getNumGoles() - a.getNumGoles();});
 		System.out.println("\nORDENADO POR NUMERO DE GOLES");
 		// Recorremos la lista y vamos imprimiendo todos los futbolistas.
 		for (Futbolista futb : listaFutb) {

@@ -1,6 +1,7 @@
 package comparator.ej1;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Principal {
@@ -20,8 +21,15 @@ public class Principal {
 
 		}
 
+		Comparator<Integer> compararNumeros = (a, b) -> {
+			return a-b;
+		};
+			
+
 		// Lo ordenamos de forma decreciente llamando a nuestra clase CompararNumeros.
-		Arrays.sort(listaNumeros, new CompararNumeros());
+		Arrays.sort(listaNumeros, compararNumeros);
+		
+		Arrays.sort(listaNumeros, (a, b) -> { return a-b;});
 
 		// Imprimimos el array.
 		System.out.println(Arrays.toString(listaNumeros));
