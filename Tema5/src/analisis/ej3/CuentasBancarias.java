@@ -1,6 +1,5 @@
 package analisis.ej3;
 
-import java.util.Collections;
 import java.util.HashSet;
 
 public class CuentasBancarias implements Comparable<CuentasBancarias> {

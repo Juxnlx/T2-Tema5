@@ -22,7 +22,7 @@ public class PrincipalBiblio {
 
 		// Ordenamos la biblioteca teniendo en cuenta los titulos, para ello hacemos una
 		// llamada al método compare de la clase CompararFichas.
-		Collections.sort(biblioteca, new CompararFichas());
+		Collections.sort(biblioteca, (a, b)->{return a.getTitulo().compareTo(b.getTitulo());});
 
 		// Ordenamos la biblioteca teniendo en cuenta los id de cada ficha, para ello
 		// solo tenemos que hacer un sort de la biblioteca, ya que se ordena mediante el
