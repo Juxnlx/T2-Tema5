@@ -14,39 +14,54 @@ public class PrincipalMandos {
 		// Creamos un arrayList donde almacenar todos los mandos creados.
 		ArrayList<MandoDistancia> mandos = new ArrayList<MandoDistancia>();
 
-		// Mandos de Televisión
-		MandoTelevision mandoTV1 = new MandoTelevision("Sony TV", 5.5, 15.0, 50.0, 20, 5);
-		MandoTelevision mandoTV2 = new MandoTelevision("Samsung TV", 5.0, 16.1, 34.0, 10, 3);
-		MandoTelevision mandoTV3 = new MandoTelevision("Philips TV", 4.0, 14.8, 41.0, 15, 2);
+		// Creamos un bloque try-catch para capturar la distitntas excepciones que
+		// pueden darse al crear un objeto.
+		try {
+			// Mandos de Televisión
+			MandoTelevision mandoTV1 = new MandoTelevision("Sony TV", 5.5, 15.0, 50.0, 20, 5);
+			MandoTelevision mandoTV2 = new MandoTelevision("Samsung TV", 5.0, 16.1, 34.0, 10, 3);
+			MandoTelevision mandoTV3 = new MandoTelevision("Philips TV", 4.0, 14.8, 41.0, 15, 2);
 
-		// Mandos de Minicadena
-		Minicadena minicadena1 = new Minicadena("Minicadena Sony", 18.0, 7.5, 80.0, 30);
-		Minicadena minicadena2 = new Minicadena("Minicadena LG", 17.5, 7.2, 75.0, 50);
-		Minicadena minicadena3 = new Minicadena("Minicadena Pioneer", 18.3, 7.0, 70.0, 40);
+			// Mandos de Minicadena
+			Minicadena minicadena1 = new Minicadena("Minicadena Sony", 18.0, 7.5, 80.0, 30);
+			Minicadena minicadena2 = new Minicadena("Minicadena LG", 17.5, 7.2, 75.0, 50);
+			Minicadena minicadena3 = new Minicadena("Minicadena Pioneer", 18.3, 7.0, 70.0, 40);
 
-		// Mandos de Aire Acondicionado
-		MandoAireAcondicionado mandoAire1 = new MandoAireAcondicionado("LG AC", 4.0, 12.0, 40.0);
-		MandoAireAcondicionado mandoAire2 = new MandoAireAcondicionado("Samsung AC", 6.0, 12.5, 30.0);
+			// Mandos de Aire Acondicionado
+			MandoAireAcondicionado mandoAire1 = new MandoAireAcondicionado("LG AC", 4.0, 12.0, 40.0);
+			MandoAireAcondicionado mandoAire2 = new MandoAireAcondicionado("Samsung AC", 6.0, 12.5, 30.0);
 
-		// Mandos de Aspiradora
-		MandoAspiradora mandoAspiradora1 = new MandoAspiradora("Aspiradora Dyson", 4.0, 9.0, 50.0, 2);
-		MandoAspiradora mandoAspiradora2 = new MandoAspiradora("Aspiradora Hoover", 5.0, 9.2, 55.0, 1);
+			// Mandos de Aspiradora
+			MandoAspiradora mandoAspiradora1 = new MandoAspiradora("Aspiradora Dyson", 4.0, 9.0, 50.0, 2);
+			MandoAspiradora mandoAspiradora2 = new MandoAspiradora("Aspiradora Hoover", 5.0, 9.2, 55.0, 1);
 
-		// Añadimos todos los objetos a nuestra lista.
-		mandos.add(mandoTV1);
-		mandos.add(mandoTV2);
-		mandos.add(mandoTV3);
-		mandos.add(minicadena1);
-		mandos.add(minicadena2);
-		mandos.add(minicadena3);
-		mandos.add(mandoAspiradora1);
-		mandos.add(mandoAspiradora2);
-		mandos.add(mandoAire1);
-		mandos.add(mandoAire2);
+			// Añadimos todos los objetos a nuestra lista.
+			mandos.add(mandoTV1);
+			mandos.add(mandoTV2);
+			mandos.add(mandoTV3);
+			mandos.add(minicadena1);
+			mandos.add(minicadena2);
+			mandos.add(minicadena3);
+			mandos.add(mandoAspiradora1);
+			mandos.add(mandoAspiradora2);
+			mandos.add(mandoAire1);
+			mandos.add(mandoAire2);
+
+			// Salta cuando hay una excepción en algun constructror, indicando que el modelo
+			// es erroneo.
+		} catch (ModeloException e) {
+			System.out.println(e.getMessage());
+			// Salta cuando hay una excepción en algun constructror, indicando que el precio
+			// es erroneo.
+		} catch (PrecioException e) {
+			System.out.println(e.getMessage());
+		}
 
 		// Llamamos al metodo sort de collections para ordenar nuestro ArrayList de
 		// mandos.
-		Collections.sort(mandos);
+		Collections.sort(mandos, (a, b) -> {
+			return (int) (a.getPrecio() - b.getPrecio());
+		});
 
 		// Recorremos la lista de mandos mediante for y vamos imprimiendo cada mando.
 		for (MandoDistancia m : mandos) {
@@ -54,6 +69,7 @@ public class PrincipalMandos {
 			System.out.println("Encendemos el mando...");
 			m.encenderMando();
 
+			// Comprobamos de que tipo es el mando que estamos recorriendo.
 			if (m instanceof MandoTelevision) {
 				TV((MandoTelevision) m);
 			} else if (m instanceof Minicadena) {
@@ -69,6 +85,13 @@ public class PrincipalMandos {
 		sc.close();
 	}
 
+	/**
+	 * Esta función se encarga de mostrar el menú si el objeto pasado por parametro
+	 * es un mando de televisión y luego mediante un switch ejecuta la opción
+	 * seleccionada.
+	 * 
+	 * @param m El objeto de tipo mando TV.
+	 */
 	public static void TV(MandoTelevision m) {
 		// Creamos la variable opc como char para almacenar la opción seleccionada por
 		// el usuario.
@@ -111,6 +134,13 @@ public class PrincipalMandos {
 		} while (opc != 'd');
 	}
 
+	/**
+	 * Esta función se encarga de mostrar el menú si el objeto pasado por parametro
+	 * es un mando de minicadena y luego mediante un switch ejecuta la opción
+	 * seleccionada.
+	 * 
+	 * @param m El objeto de tipo mando minicadena.
+	 */
 	public static void minicadenas(Minicadena m) {
 		// Creamos la variable opc como char para almacenar la opción seleccionada por
 		// el usuario.
@@ -143,6 +173,13 @@ public class PrincipalMandos {
 		} while (opc != 'c');
 	}
 
+	/**
+	 * Esta función se encarga de mostrar el menú si el objeto pasado por parametro
+	 * es un mando de aspiradora y luego mediante un switch ejecuta la opción
+	 * seleccionada.
+	 * 
+	 * @param m El objeto de tipo mando aspiradora.
+	 */
 	public static void aspiradoras(MandoAspiradora m) {
 		// Creamos la variable opc como char para almacenar la opción seleccionada por
 		// el usuario.
@@ -174,6 +211,13 @@ public class PrincipalMandos {
 		} while (opc != 'c');
 	}
 
+	/**
+	 * Esta función se encarga de mostrar el menú si el objeto pasado por parametro
+	 * es un mando de aire acondicionado y luego mediante un switch ejecuta la
+	 * opción seleccionada.
+	 * 
+	 * @param m El objeto de tipo mando aire acondicionado.
+	 */
 	public static void AireAC(MandoAireAcondicionado m) {
 		// Creamos la variable opc como char para almacenar la opción seleccionada por
 		// el usuario.
@@ -186,7 +230,7 @@ public class PrincipalMandos {
 		// Creamos la varible temp como int para almacenar la temperatura introducida
 		// por el usuario.
 		int temp;
-		
+
 		do {
 			System.out.println("----MENU----");
 			System.out.println("a. Cambiar el modo.");

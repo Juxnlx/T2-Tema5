@@ -8,6 +8,8 @@ class MandoDistancia implements Comparable<MandoDistancia>
 	+ MandoDistancia(modelo: String)
 	+ MandoDistancia(modelo: String, anchura: double, altura: double, precio: double)
 	
+	+ getPrecio(): double
+	
 	+ encerderMando(): void
 	+ apagarMando(): void
 	+ compareTo(MandoDistancia m): int (ascendente)

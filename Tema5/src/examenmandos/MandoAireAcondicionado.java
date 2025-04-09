@@ -67,7 +67,7 @@ public class MandoAireAcondicionado extends MandoDistancia implements Velocidad 
 	 * @param modo El nuevo modo.
 	 */
 	public void setModo(String modo) {
-		comprubaModo(null);
+		comprubaModo(modo);
 	}
 
 	/**
