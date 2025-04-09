@@ -24,8 +24,10 @@ public class MandoAspiradora extends MandoDistancia implements Velocidad {
 	 * @param encendido El botón que nos indica si esta encendido o apagado el mando
 	 *                  a distancia.
 	 * @param velocidad El volumen de un mando de aspiradora.
+	 * @throws PrecioException 
+	 * @throws ModeloException 
 	 */
-	public MandoAspiradora(String modelo, double anchura, double altura, double precio, int velocidad) {
+	public MandoAspiradora(String modelo, double anchura, double altura, double precio, int velocidad) throws ModeloException, PrecioException {
 		super(modelo, anchura, altura, precio);
 
 		if (velocidad >= 1 && velocidad <= 3) {

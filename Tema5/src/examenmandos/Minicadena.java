@@ -23,8 +23,10 @@ public class Minicadena extends MandoDistancia implements Volumen {
 	 * @param encendido El botón que nos indica si esta encendido o apagado la
 	 *                  minicadena.
 	 * @param volumen   El volumen de una minicadena.
+	 * @throws PrecioException 
+	 * @throws ModeloException 
 	 */
-	public Minicadena(String modelo, double anchura, double altura, double precio, int volumen) {
+	public Minicadena(String modelo, double anchura, double altura, double precio, int volumen) throws ModeloException, PrecioException {
 		super(modelo, anchura, altura, precio);
 
 		if (volumen > 0) {

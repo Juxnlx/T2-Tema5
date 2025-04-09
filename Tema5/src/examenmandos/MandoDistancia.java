@@ -40,10 +40,13 @@ public class MandoDistancia implements Comparable<MandoDistancia> {
 	 * de un mando y puede que se utilize para realizar alguna busqueda.
 	 * 
 	 * @param modelo El modelo de un mando a distancia.
+	 * @throws ModeloException 
 	 */
-	public MandoDistancia(String modelo) {
+	public MandoDistancia(String modelo) throws ModeloException {
 		if (modelo != null && !modelo.isBlank()) {
 			this.modelo = modelo;
+		} else {
+			throw new ModeloException();
 		}
 	}
 
@@ -56,12 +59,12 @@ public class MandoDistancia implements Comparable<MandoDistancia> {
 	 * @param precio    El precio del mando a distancia.
 	 * @param encendido El botón que nos indica si esta encendido o apagado el mando
 	 *                  a distancia.
+	 * @throws ModeloException 
+	 * @throws PrecioException 
 	 */
-	public MandoDistancia(String modelo, double anchura, double altura, double precio
-) {
-		if (modelo != null && !modelo.isBlank()) {
-			this.modelo = modelo;
-		}
+	public MandoDistancia(String modelo, double anchura, double altura, double precio) throws ModeloException, PrecioException {
+
+		this(modelo);
 
 		if (anchura > 0) {
 			this.anchura = anchura;
@@ -73,6 +76,8 @@ public class MandoDistancia implements Comparable<MandoDistancia> {
 
 		if (precio > 0) {
 			this.precio = precio;
+		} else {
+			throw new PrecioException();
 		}
 	}
 

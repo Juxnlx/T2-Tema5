@@ -43,8 +43,10 @@ public class MandoAireAcondicionado extends MandoDistancia implements Velocidad 
 	 * @param precio    El precio de un mando de aire acondicionado.
 	 * @param encendido El botón que nos indica si esta encendido o apagado el mando
 	 *                  a distancia.
+	 * @throws PrecioException 
+	 * @throws ModeloException 
 	 */
-	public MandoAireAcondicionado(String modelo, double anchura, double altura, double precio) {
+	public MandoAireAcondicionado(String modelo, double anchura, double altura, double precio) throws ModeloException, PrecioException {
 		super(modelo, anchura, altura, precio);
 	}
 

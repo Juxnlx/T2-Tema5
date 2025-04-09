@@ -32,9 +32,11 @@ public class MandoTelevision extends MandoDistancia implements Volumen {
 	 *                  a distancia.
 	 * @param volumen   El volumen de un mando de televisión.
 	 * @param canal     El canal de un mando de televisión.
+	 * @throws PrecioException 
+	 * @throws ModeloException 
 	 */
 	public MandoTelevision(String modelo, double anchura, double altura, double precio, int volumen,
-			int canal) {
+			int canal) throws ModeloException, PrecioException {
 		super(modelo, anchura, altura, precio);
 
 		if (volumen > 0) {
